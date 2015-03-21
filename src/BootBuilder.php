@@ -26,4 +26,12 @@ class BootBuilder {
         return self::$form;
     }
     
+    /**
+     * Get current form
+     * @return null|Form
+     */
+    public static function getForm() {
+        return self::$form;
+    }
+    
 }
