@@ -3,6 +3,11 @@
 namespace bootbuilder;
 
 abstract class Form {
+    protected $controls;
+    
+    public function __construct() {
+        $this->controls = array();
+    }
     
     /**
      * Render a form Control
@@ -13,10 +18,13 @@ abstract class Form {
     /**
      * Close the form
      */
-    public function close();
+    public function close(boolean $render = true);
     
     /**
-     * Render the form HTML, when using buffer
+     * Add control to form
      */
-    public function render();
+    public function add(Controls\Control $control) {
+        array_push($this->controls, $control);
+    }
+    
 }
