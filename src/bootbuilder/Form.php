@@ -13,12 +13,12 @@ abstract class Form {
      * Render a form Control
      * @param Control
      */
-    public static function renderControl($control);
+    public abstract static function renderControl($control);
     
     /**
      * Close the form
      */
-    public function close(boolean $render = true);
+    public abstract function close($render = true);
     
     /**
      * Add control to form
