@@ -12,6 +12,8 @@ abstract class Control {
     protected $placeholder;
     protected $disabled = false;
     protected $readonly = false;
+    
+    protected $_plain = false;
 
     public function __construct($name, $label = "", $id = null, $value = null) {
         $this->name = $name;
@@ -158,6 +160,14 @@ abstract class Control {
      */
     public function isReadOnly() {
         return $this->readonly;
+    }
+    
+    /**
+     * Does this control needs futhur rendering, or is it a plain control (no styles, no bootstrap)
+     * @return boolean
+     */
+    public function isPlainControl() {
+        return $this->_plain;
     }
     
     /**

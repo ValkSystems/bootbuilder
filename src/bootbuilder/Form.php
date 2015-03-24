@@ -25,7 +25,11 @@ abstract class Form {
         
         // Render all the controls
         foreach($this->controls as $control) {
-            $html .= $this->renderControl($control, true);
+            if($control->isPlainControl()){
+                $html .= $control->renderBasic();
+            }else{
+                $html .= $this->renderControl($control, true);                
+            }
         }
         
         // Close the form
