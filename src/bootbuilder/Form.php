@@ -38,10 +38,10 @@ abstract class Form {
     
     /**
      * Render a form Control
-     * @param Control $control the control to render
+     * @param \Controls\Control $control the control to render
      * @param boolean $return Do you want to return the HTML?
      */
-    public abstract static function renderControl($control, $return = false);
+    public abstract static function renderControl(\bootbuilder\Controls\Control $control, $return = false);
     
     /**
      * Add control to form
