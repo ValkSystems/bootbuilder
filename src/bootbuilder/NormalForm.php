@@ -16,7 +16,6 @@ class NormalForm extends Form {
         $html .= "<label for='$control->getId()'>" . $control->getLabel() . "</label>";
         
         // Control        
-        $control->setClass("form-control " . $control->getClass());
         $html .= $control->renderBasic();
         
         $html .= "</div>"; // Close form-group div

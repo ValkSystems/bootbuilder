@@ -25,7 +25,6 @@ class HorizontalForm extends Form {
         // Control
         $html .= "<div class='$this->controlcol'>";
         
-        $control->setClass("form-control " . $control->getClass());
         $html .= $control->renderBasic();
         
         $html .= "</div>"; // Close control div
