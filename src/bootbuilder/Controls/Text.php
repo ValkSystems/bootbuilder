@@ -8,11 +8,7 @@ class Text extends Control {
      */
     public function renderBasic() {
         $html = "<input type='text'";
-        if($this->id) $html .= " id='$this->id'";
-        $html .= " class='form-control $this->class'";
-        if($this->name) $html .= " name='$this->name'";
-        if($this->placeholder) $html .= " placeholder='$this->placeholder'";
-        if($this->value) $html .= " value='$this->value'";
+        $html .= " " . $this->getCompiledAttributes("form-control");
         $html .= ">";
         return $html;
     }

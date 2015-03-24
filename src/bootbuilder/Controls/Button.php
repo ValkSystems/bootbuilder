@@ -13,9 +13,8 @@ class Button extends Control {
     
     public function renderBasic() {
         $html = "<button type='button'";
-        if($this->name) $html .= " name='$this->name'";
-        if($this->id) $html .= " id='$this->id'";
-        $html .= " class='btn $this->buttonsize $this->buttonstyle $this->class'>";
+        $html .= " " . $this->getCompiledAttributes("btn $this->buttonsize $this->buttonstyle");
+        $html .= ">";
         $html .= $this->value;
         $html .= "</button>";
         return $html;
