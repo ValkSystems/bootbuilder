@@ -49,9 +49,24 @@ abstract class Form {
     
     /**
      * Add control to form
+     * @param \Controls\Control $control Control to add
      */
     public function add(Controls\Control $control) {
         array_push($this->controls, $control);
+    }
+    
+    /**
+     * Add multiple controls to form
+     * @param \Controls\Control $control,... Multiple controls
+     */
+    public function addAll() {
+        if(func_num_args() > 0) {
+            for($i = 0; $i < func_num_args(); $i++) {
+                if(func_get_arg($i) instanceof \bootbuilder\Controls\Control){
+                    array_push($this->controls, func_get_arg($i));
+                }
+            }
+        }
     }
     
     /**
