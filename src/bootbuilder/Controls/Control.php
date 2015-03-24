@@ -11,26 +11,21 @@ abstract class Control {
     protected $label;
     protected $placeholder;
 
-    public function __construct($name, $id = null, $value = null) {
+    public function __construct($name, $label = "", $id = null, $value = null) {
         $this->name = $name;
+        $this->label = $label;
+        if($id == null) $id = uniqid();
         $this->id = $id;
         $this->value = $value;
         $this->class = "";
     }
     
-    /**
-     * Get ID of control
-     * @return string|null
-     */
-    protected function getId() {
-        return $this->id;
-    }
     
     /**
      * Get Name of control
      * @return string
      */
-    protected function getName() {
+    public function getName() {
         return $this->name;
     }
     
@@ -38,7 +33,7 @@ abstract class Control {
      * Get value of control
      * @return mixed
      */
-    protected function getValue() {
+    public function getValue() {
         return $this->value;
     }
     
@@ -59,11 +54,27 @@ abstract class Control {
     }
     
     /**
+     * Get the HTML ID tag of the control
+     * @return string
+     */
+    public function getId() {
+        return $this->id;
+    }
+    
+    /**
      * Set the class string (can hold multiple classes, seperated with spaces)
      * @param string $class
      */
     public function setClass($class) {
         $this->class = $class;
+    }
+    
+    /**
+     * Get current class string
+     * @return string
+     */
+    public function getClass() {
+        return $this->class;
     }
     
     /**
@@ -88,6 +99,14 @@ abstract class Control {
      */
     public function setLabel($label) {
         $this->label = $label;
+    }
+    
+    /**
+     * Get label of control
+     * @return string
+     */
+    public function getLabel() {
+        return $this->label;
     }
     
     /**
