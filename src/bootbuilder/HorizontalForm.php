@@ -8,11 +8,7 @@ class HorizontalForm extends Form {
         parent::__construct();
     }
     
-    public function close($render = true) {
-        
-    }
-    
-    public static function renderControl($control) {
+    public static function renderControl($control, $return = false) {
         
     }
 
