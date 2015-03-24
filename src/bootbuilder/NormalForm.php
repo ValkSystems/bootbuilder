@@ -13,7 +13,7 @@ class NormalForm extends Form {
         $html = "<div class='form-group'>";
         
         // Label
-        $html .= "<label for='$control->getId()'>" . $control->getLabel() . "</label>";
+        $html .= "<label for='{$control->getId()}'>" . $control->getLabel() . "</label>";
         
         // Control        
         $html .= $control->renderBasic();

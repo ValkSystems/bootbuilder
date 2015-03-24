@@ -20,7 +20,7 @@ class HorizontalForm extends Form {
         $html = "<div class='form-group'>";
         
         // Label
-        $html .= "<label for='$control->getId()' class='control-label $this->labelcol'>" . $control->getLabel() . "</label>";
+        $html .= "<label for='{$control->getId()}' class='control-label $this->labelcol'>" . $control->getLabel() . "</label>";
         
         // Control
         $html .= "<div class='$this->controlcol'>";
