@@ -170,15 +170,17 @@ abstract class Control {
     
     /**
      * Compile the HTML attributes for using in the controls tag
+     * @param string $prependClass
+     * @param boolean $skipValue
      * @return string Compiled attributes
      */
-    protected function getCompiledAttributes($prependClass = "") {
+    protected function getCompiledAttributes($prependClass = "", $skipValue = false) {
         $attrs = "";
         if($this->id) $attrs .= " id='$this->id'";
         $attrs .= " class='$prependClass $this->class'";
         if($this->name) $attrs .= " name='$this->name'";
         if($this->placeholder) $attrs .= " placeholder='$this->placeholder'";
-        if($this->value) $attrs .= " value='$this->value'";
+        if($this->value && !$skipValue) $attrs .= " value='$this->value'";
         if($this->disabled === true) $attrs .= " disabled";
         if($this->readonly === true) $attrs .= " readonly";
         
