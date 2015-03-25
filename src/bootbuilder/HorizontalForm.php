@@ -20,7 +20,11 @@ class HorizontalForm extends Form {
         $html = "<div class='form-group'>";
         
         // Label
-        $html .= "<label for='{$control->getId()}' class='control-label " . self::$labelcol . "'>" . $control->getLabel() . "</label>";
+        if(!$control instanceof \bootbuilder\Controls\Checkbox && !$control instanceof \bootbuilder\Controls\Radio) {
+            $html .= "<label for='{$control->getId()}' class='control-label " . self::$labelcol . "'>" . $control->getLabel() . "</label>";
+        }else{
+            $html .= "<label class='control-label " . self::$labelcol . "'></label>";
+        }
         
         // Control
         $html .= "<div class='" . self::$controlcol . "'>";

@@ -13,7 +13,9 @@ class NormalForm extends Form {
         $html = "<div class='form-group'>";
         
         // Label
-        $html .= "<label for='{$control->getId()}'>" . $control->getLabel() . "</label>";
+        if(!$control instanceof \bootbuilder\Controls\Checkbox && !$control instanceof \bootbuilder\Controls\Radio) {
+            $html .= "<label for='{$control->getId()}'>" . $control->getLabel() . "</label>";
+        }
         
         // Control        
         $html .= $control->renderBasic();
