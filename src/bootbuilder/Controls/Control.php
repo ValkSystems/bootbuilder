@@ -10,6 +10,7 @@ abstract class Control {
     protected $placeholder;
     protected $disabled = false;
     protected $readonly = false;
+    protected $required = false;
     
     protected $_plain = false;
 
@@ -161,6 +162,23 @@ abstract class Control {
     }
     
     /**
+     * Make the control required
+     * Warning, this can be manipulated by the browser, always check parameters server side too!
+     * @param boolean $required
+     */
+    public function setRequired($required) {
+        if($required === true || $required === false) $this->required = $required;
+    }
+    
+    /**
+     * Is the control required?
+     * @return boolean
+     */
+    public function isRequired() {
+        return $this->required;
+    }
+    
+    /**
      * Does this control needs futhur rendering, or is it a plain control (no styles, no bootstrap)
      * @return boolean
      */
@@ -183,6 +201,7 @@ abstract class Control {
         if($this->value && !$skipValue) $attrs .= " value='$this->value'";
         if($this->disabled === true) $attrs .= " disabled";
         if($this->readonly === true) $attrs .= " readonly";
+        if($this->required === true) $attrs .= " required";
         
         // Trim and return the compiled attributes
         return rtrim(ltrim($attrs));
