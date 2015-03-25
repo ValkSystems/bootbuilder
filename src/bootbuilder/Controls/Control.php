@@ -1,8 +1,6 @@
 <?php
 namespace bootbuilder\Controls;
 
-use bootbuilder;
-
 abstract class Control {
     protected $name;
     protected $id;
