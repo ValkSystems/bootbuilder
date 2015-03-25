@@ -1,6 +1,8 @@
 {
     "name": "valksystems/bootbuilder",
-    "description": "Easy bootstrap form builder in PHP, OOP.",
+    "description": "Easy bootstrap form builder in PHP.",
+    "keywords": ["bootstrap", "builder", "form"],
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
