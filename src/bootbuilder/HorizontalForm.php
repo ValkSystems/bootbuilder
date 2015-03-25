@@ -15,6 +15,22 @@ class HorizontalForm extends Form {
         self::$controlcol = $control_col;
     }
     
+    /**
+     * Set the column style for the labels (left column)
+     * @param string $label_col
+     */
+    public function setLabelCol($label_col) {
+        self::$labelcol = $label_col;
+    }
+    
+    /**
+     * Set the column style for the controls and panes (right column)
+     * @param string $control_col
+     */
+    public function setControlCol($control_col) {
+        self::$controlcol = $control_col;
+    }
+    
     public static function renderControl(\bootbuilder\Controls\Control $control, $return = false) {
         // Form group
         $html = "<div class='form-group'>";
