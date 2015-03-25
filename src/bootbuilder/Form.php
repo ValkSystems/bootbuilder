@@ -5,6 +5,7 @@ namespace bootbuilder;
 abstract class Form {
     protected $controls;
     protected $action;
+    protected $method = "get";
     protected $class;
     protected $id;
 
@@ -21,6 +22,7 @@ abstract class Form {
         if($this->id) $html .= " id='$this->id'";
         if($this->class) $html .= " class='$this->class'";
         if($this->action || $this->action == "") $html .= " action='$this->action'";
+        if($this->method) $html .= " method='$this->method'";
         $html .= ">";
         
         // Render all the controls
@@ -91,6 +93,14 @@ abstract class Form {
      */
     public function setAction($action) {
         $this->action = $action;
+    }
+    
+    /**
+     * Set the method for form handling (get or post)
+     * @param string $method
+     */
+    public function setMethod($method) {
+        $this->method = $method;
     }
     
 }
