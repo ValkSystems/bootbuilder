@@ -1,5 +1,7 @@
 <?php
 
+require '../vendor/autoload.php';
+
 use bootbuilder\BootBuilder;
 use bootbuilder\Controls\Text;
 use bootbuilder\Controls\Checkbox;
