@@ -1,3 +1,5 @@
+[![Build status](https://travis-ci.org/ValkSystems/bootbuilder.svg)](https://travis-ci.org/ValkSystems/bootbuilder)
+
 # BootBuilder
 
 Bootstrap Form Building made easy in PHP.
