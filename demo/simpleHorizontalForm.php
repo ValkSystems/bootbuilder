@@ -23,7 +23,7 @@
             use \bootbuilder\BootBuilder;
             use \bootbuilder\Controls\Text, \bootbuilder\Controls\TextArea, \bootbuilder\Controls\Button, \bootbuilder\Controls\Email;
             use \bootbuilder\Controls\Submit, \bootbuilder\Controls\Checkbox, \bootbuilder\Controls\File, \bootbuilder\Controls\Hidden;
-            use \bootbuilder\Controls\Password, \bootbuilder\Controls\Radio, \bootbuilder\Controls\Select;
+            use \bootbuilder\Controls\Password, \bootbuilder\Controls\Radio, \bootbuilder\Controls\Select, \bootbuilder\Controls\CustomHtml;
 
             $form = BootBuilder::openHorizontal();
             $form->setAction("");
@@ -62,9 +62,11 @@
             
             $hidden = new Hidden("testing_hidden", "Hidden Value");
             
+            $customhtml = new CustomHtml("<hr>");
+            
             $submit = new Submit("Send");
             
-            $form->addAll($txt, $email, $area, $password, $checkb1, $checkb2, $radio1, $radio2, $select1, $file1, $hidden, $submit);
+            $form->addAll($txt, $email, $area, $password, $checkb1, $checkb2, $radio1, $radio2, $select1, $file1, $hidden, $customhtml, $submit);
 
             $form->render();
 

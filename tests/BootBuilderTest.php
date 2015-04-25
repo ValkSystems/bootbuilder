@@ -4,6 +4,7 @@ use bootbuilder\BootBuilder;
 use bootbuilder\Controls\Text;
 use bootbuilder\Controls\Checkbox;
 use bootbuilder\Pane\StackPane;
+use bootbuilder\Controls\CustomHtml;
 
 class BootBuilderTest extends PHPUnit_Framework_TestCase {
     
@@ -53,5 +54,20 @@ class BootBuilderTest extends PHPUnit_Framework_TestCase {
         $this->assertContains("disabled", $html);
         $this->assertContains("stackpane", $html);
         $this->assertContains($c->getId(), $html); // Dynamic id's
+    }
+    
+    public function testCustomHtml() {
+        $chtml = new CustomHtml();
+        
+        $this->assertEquals("", $chtml->getHtml());
+        
+        $chtml->setHtml("<a>testing</a>");
+        
+        $this->assertEquals("<a>testing</a>", $chtml->getHtml());
+        $this->assertEquals("<a>testing</a>", $chtml->renderBasic());
+        
+        $chtml->appendHtml("Seems Fine!");
+        
+        $this->assertEquals("<a>testing</a>Seems Fine!", $chtml->getHtml());
     }
 }
