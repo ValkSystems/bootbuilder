@@ -16,7 +16,7 @@ You can install the package with Composer, check out composer on http://getcompo
 
 Add the following to the required in the composer.json:
 ```
-"valksystems/bootbuilder": "dev-master"
+"valksystems/bootbuilder": ">=1.0.0"
 ```
 
 ## Usage
