@@ -5,3 +5,5 @@
 /vendor/phpdocumentor/
 /vendor/phpspec/
 /vendor/sebastian/
+
+vendor/symfony/yaml/
