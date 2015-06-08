@@ -11,7 +11,8 @@ abstract class Control {
     protected $disabled = false;
     protected $readonly = false;
     protected $required = false;
-    
+    protected $errorstate = false;
+
     protected $_plain = false;
 
     public function __construct($name, $label = "", $id = null, $value = null) {
@@ -184,6 +185,22 @@ abstract class Control {
      */
     public function isPlainControl() {
         return $this->_plain;
+    }
+    
+    /**
+     * Set error state on control
+     * @param boolean $errorstate
+     */
+    public function setErrorState($errorstate) {
+        $this->errorstate = $errorstate;
+    }
+    
+    /**
+     * Currently has error state, only possible after validation
+     * @return boolean
+     */
+    public function isErrorState() {
+        return $this->errorstate;
     }
     
     /**

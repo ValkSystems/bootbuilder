@@ -33,4 +33,12 @@ abstract class Pane extends \bootbuilder\Controls\Control {
             }
         }
     }
+    
+    /**
+     * Get raw controls array
+     * @return array array with controls
+     */
+    public function getRawControls() {
+        return $this->controls;
+    }
 }
