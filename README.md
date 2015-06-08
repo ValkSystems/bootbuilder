@@ -13,6 +13,11 @@ Add the following to the required in the composer.json:
 "valksystems/bootbuilder": ">=1.0.0"
 ```
 
+Or execute the following composer command:
+```
+composer require 'valksystems/bootbuilder:1*'
+```
+
 ## Usage
 
 Checkout the demo folder for demo's with the controls and different styles of forms
