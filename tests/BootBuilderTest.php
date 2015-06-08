@@ -56,6 +56,12 @@ class BootBuilderTest extends PHPUnit_Framework_TestCase {
         $this->assertContains($c->getId(), $html); // Dynamic id's
     }
     
+    public function testCustomInputType() {
+        $color = new Text("testing");
+        $color->setType("color");
+        $this->assertContains("type='color'", $color->renderBasic());
+    }
+    
     public function testCustomHtml() {
         $chtml = new CustomHtml();
         
