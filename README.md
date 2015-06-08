@@ -4,12 +4,6 @@
 
 Bootstrap Form Building made easy in PHP.
 
-## More ideas
-* Customized elements, append HTML
-* Hover label
-* Bootstrap help text
-* Adding validation states (for server-side validation)
-
 ## Installation
 
 You can install the package with Composer, check out composer on http://getcomposer.org
@@ -71,6 +65,7 @@ You can use the following controls, in fully bootstrap styles:
 * Checkbox
 * Radio
 * Text (input type=text)
+* Number (input type=number)
 * Email (input type=email)
 * TextArea
 * Hidden (input type=hidden)
@@ -89,7 +84,7 @@ $text = new Text("name", "Please enter your name", "name_id", "Current Name");
 ```
 
 
-On all the controls you can set the name, id, class(es), value, placeholder, label text, required (y/n), disabled (y/n), readonly (y/n) with simple methods:
+On all the controls you can set the name, id, class(es), value, placeholder, label text, required (y/n), disabled (y/n), readonly (y/n), errorstate (y/n) and helptext with simple methods:
 
 ```php
 setId($id) // set the id of the control tag (<input>/<select>/etc)
@@ -100,9 +95,14 @@ setLabel($labeltext) // set the label text, for using when rendering in a suppor
 setRequired($required) // set if the control is required (note, browser can be manipulated)
 setDisabled($disabled) // set disabled state
 setReadOnly($readonle) // set readonly state
+setErrorState($errorstate) // set if the control is in error state
+setHelpText($helptext) // set helptext for under the control
 ```
 
 After creating you can either add it to a pane or to the form directly.
+
+##### Text
+You can enter a custom type of input now, with the method ``` setType($type) ```
 
 ##### TextArea
 On a TextArea object you can set the optional rows parameter with the method ``` setRows($rows) ```
@@ -145,3 +145,6 @@ See http://getbootstrap.com/css/?#inline-checkboxes-and-radios for more informat
 
 This project is under MIT License, see LICENSE file.
 
+
+## Resposibility
+We are not resposible for any security problems, always check code before you are going to use it!
