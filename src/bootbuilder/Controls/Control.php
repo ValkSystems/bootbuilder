@@ -8,6 +8,7 @@ abstract class Control {
     protected $value;
     protected $label;
     protected $placeholder;
+    protected $helptext;
     protected $disabled = false;
     protected $readonly = false;
     protected $required = false;
@@ -201,6 +202,34 @@ abstract class Control {
      */
     public function isErrorState() {
         return $this->errorstate;
+    }
+    
+    /**
+     * Set HelpText for the control, set NULL to ignore
+     * @param null|string $helptext
+     */
+    public function setHelpText($helptext) {
+        $this->helptext = $helptext;
+    }
+    
+    /**
+     * Get HelpText for control
+     * @return null|string
+     */
+    public function getHelpText() {
+        return $this->helptext;
+    }
+    
+    /**
+     * Validate value of control
+     * @return boolean validation successfully?
+     */
+    public function isValid() {
+        if($this->isRequired()) {
+            if($this->getValue() == null) return false;
+            if($this->getValue() == "") return false;
+        }
+        return true;
     }
     
     /**

@@ -12,5 +12,18 @@ class Email extends Control {
         $html .= ">";
         return $html;
     }
+    
+    /**
+     * Validate email
+     * @return boolean
+     */
+    public function isValid() {
+        $valid = parent::isValid();
+        if (!filter_var($this->getValue(), FILTER_VALIDATE_EMAIL)) {
+            $valid = false;
+        }
+        
+        return $valid;
+    }
 
 }

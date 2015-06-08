@@ -8,6 +8,8 @@ abstract class Form {
     protected $method = "get";
     protected $class;
     protected $id;
+    
+    protected static $displayerrors = true;
 
     public function __construct() {
         $this->controls = array();
@@ -105,6 +107,93 @@ abstract class Form {
         $this->method = $method;
     }
     
+    /**
+     * Set display error class state on controls
+     * @param boolean $displayerrors
+     */
+    public function setDisplayErrors($displayerrors) {
+        self::$displayerrors = $displayerrors;
+    }
     
+    /**
+     * Will show error state on controls
+     * @return boolean
+     */
+    public function isDisplayingErrors() {
+        return self::$displayerrors;
+    }
     
+    /**
+     * Get raw controls array
+     * @return array array with controls
+     */
+    public function getRawControls() {
+        return $this->controls;
+    }
+    
+    /**
+     * Replace current control in array with new one
+     * @param int $nr
+     * @param mixed $control
+     */
+    public function replaceControl($nr, $control) {
+        if(isset($this->controls[$nr])) {
+            $this->controls[$nr] = $control;
+        }
+    }
+    
+    /**
+     * Parse Posted Parameters into controls
+     * @param type $parameters
+     */
+    public function parseParameters($parameters) {
+        for($i = 0; $i < count($this->controls); $i++) {
+            $this->controls[$i] = $this->parseParameterControl($this->controls[$i], $parameters);
+        }
+    }
+    
+    /**
+     * Parse control
+     * @param mixed $control
+     * @param array $parameters
+     * @return mixed
+     */
+    private function parseParameterControl($control, $parameters) {
+        if($control instanceof \bootbuilder\Pane\Pane) {
+            $control->parseParameters($parameters);
+        }elseif($control instanceof \bootbuilder\Controls\Control) {
+            if(isset($parameters[$control->getName()])) {
+                if($control instanceof \bootbuilder\Controls\Checkbox) {
+                    if($control instanceof \bootbuilder\Controls\Radio) {
+                        if($control->getValue() == $parameters[$control->getName()]) {
+                            $control->setChecked(true);
+                        }else{
+                            $control->setChecked(false);
+                        }
+                    }else{
+                        $control->setChecked(true);
+                    }
+                }else{
+                    $control->setValue(htmlentities($parameters[$control->getName()]));
+                }
+            }
+        }
+        
+        return $control;
+    }
+    
+    /**
+     * Save form for validation
+     * @param boolean $replace set false if you have multiple forms on one page
+     * @param boolean $prepare prepare session, false on unittesting
+     */
+    public function save($replace = true, $prepare = true) {
+        $this->add(new \bootbuilder\Controls\Hidden("bootbuilder-form", $this->id));
+        
+        if($replace) {
+            \bootbuilder\Validation\Validator::clean();
+        }
+        
+        \bootbuilder\Validation\Validator::save($this, $this->id, $prepare);
+    }
 }
