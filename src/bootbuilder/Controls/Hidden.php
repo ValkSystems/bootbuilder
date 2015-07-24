@@ -10,7 +10,9 @@ class Hidden extends Control {
     }
     
     public function renderBasic() {
-        $html = "<input type='hidden' name='$this->name' value='$this->value'>";
+        $html = "<input type='hidden' name='$this->name' value='$this->value'";
+        if($this->id) $html .= " id='$this->id'";
+        $html .= ">";
         return $html;
     }
 
