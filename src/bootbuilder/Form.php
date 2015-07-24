@@ -8,6 +8,8 @@ abstract class Form {
     protected $method = "get";
     protected $class;
     protected $id;
+    protected $enctype;
+    protected $custom;
     
     protected static $displayerrors = true;
 
@@ -25,6 +27,8 @@ abstract class Form {
         if($this->class) $html .= " class='$this->class'";
         if($this->action || $this->action == "") $html .= " action='$this->action'";
         if($this->method) $html .= " method='$this->method'";
+        if($this->enctype) $html .= " enctype='$this->enctype'";
+        if($this->custom) $html .= " $this->custom";
         $html .= ">";
         
         // Render all the controls
@@ -46,7 +50,7 @@ abstract class Form {
     
     /**
      * Render a form Control
-     * @param \Controls\Control $control the control to render
+     * @param \BootBuilder\Controls\Control $control the control to render
      * @param boolean $return Do you want to return the HTML?
      */
     public static function renderControl(\bootbuilder\Controls\Control $control, $return = false) {
@@ -55,7 +59,7 @@ abstract class Form {
     
     /**
      * Add control to form
-     * @param \Controls\Control $control Control to add
+     * @param \BootBuilder\Controls\Control $control Control to add
      */
     public function add(Controls\Control $control) {
         array_push($this->controls, $control);
@@ -63,7 +67,7 @@ abstract class Form {
     
     /**
      * Add multiple controls to form
-     * @param \Controls\Control $control,... Multiple controls
+     * @param \BootBuilder\Controls\Control $control,... Multiple controls
      */
     public function addAll() {
         if(func_num_args() > 0) {
@@ -141,10 +145,42 @@ abstract class Form {
             $this->controls[$nr] = $control;
         }
     }
+
+    /**
+     * Set enctype in form
+     * @param $enctype string
+     */
+    public function setEnctype($enctype) {
+        $this->enctype = $enctype;
+    }
+
+    /**
+     * Get enctype in form
+     * @return string|null
+     */
+    public function getEnctype() {
+        return $this->enctype;
+    }
+
+    /**
+     * Set custom attribute(s)
+     * @param $custom string [key="value"]
+     */
+    public function setCustom($custom) {
+        $this->custom = $custom;
+    }
+
+    /**
+     * Get custom attribute(s)
+     * @return string|null
+     */
+    public function getCustom() {
+        return $this->custom;
+    }
     
     /**
      * Parse Posted Parameters into controls
-     * @param type $parameters
+     * @param mixed $parameters
      */
     public function parseParameters($parameters) {
         for($i = 0; $i < count($this->controls); $i++) {
