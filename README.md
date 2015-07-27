@@ -1,4 +1,4 @@
-[![Build status](https://travis-ci.org/ValkSystems/bootbuilder.svg)](https://travis-ci.org/ValkSystems/bootbuilder)
+[![Build status](https://travis-ci.org/ValkSystems/bootbuilder.svg)](https://travis-ci.org/ValkSystems/bootbuilder) [![Codacy Badge](https://www.codacy.com/project/badge/4e8e7112a0db45fe98866f22d82d1066)](https://www.codacy.com/app/tomvalk/bootbuilder)
 
 # BootBuilder
 
