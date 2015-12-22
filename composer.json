@@ -1,7 +1,7 @@
 {
     "name": "valksystems/bootbuilder",
-    "description": "Easy bootstrap form builder in PHP.",
-    "keywords": ["bootstrap", "builder", "form"],
+    "description": "Easy bootstrap form builder in OOP PHP. You can generate forms from object oriented form building with PHP code.",
+    "keywords": ["bootstrap", "builder", "form", "generator"],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -16,7 +16,7 @@
     },
     "require-dev": {
         "php": ">=5.4.0",
-        "phpunit/phpunit": "4.5.1"
+        "phpunit/phpunit": "5.1.*"
     },
     "autoload": {
         "psr-0": {
