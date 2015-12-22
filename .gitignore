@@ -1,12 +1,6 @@
 /nbproject/private/
 /nbproject/
-/vendor/phpunit/
-/vendor/doctrine/
-/vendor/phpdocumentor/
-/vendor/phpspec/
-/vendor/sebastian/
-
-vendor/symfony/yaml/
+/vendor
 
 # Idea
 bootbuilder.iml
