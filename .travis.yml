@@ -5,8 +5,3 @@ php:
     - hhvm
 script: phpunit
 before_script: composer install
-  
-matrix:
-    allow_failures:
-        - php: 7.0
-  
